@@ -1,6 +1,12 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 
+Globals:  
+  Function:
+    Runtime: nodejs12.x
+    CodeUri: lambda
+    Timeout: 15
+
 Resources:
   CoursesTable:
     Type: AWS::Serverless::SimpleTable
@@ -28,10 +34,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-all-authors
-      Runtime: nodejs12.x
-      CodeUri: lambda
       Handler: get-all-authors.handler
-      Timeout: 15
       Environment:
         Variables:
           AUTHORS_TABLE: !Ref AuthorsTable
@@ -43,10 +46,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: save-one-course
-      Runtime: nodejs12.x
-      CodeUri: lambda
       Handler: save-one-course.handler
-      Timeout: 15
       Environment:
         Variables:
           COURSES_TABLE: !Ref CoursesTable
@@ -58,10 +58,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: update-one-course
-      Runtime: nodejs12.x
-      CodeUri: lambda
       Handler: update-one-course.handler
-      Timeout: 15
       Environment:
         Variables:
           COURSES_TABLE: !Ref CoursesTable
@@ -73,10 +70,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-all-courses
-      Runtime: nodejs12.x
-      CodeUri: lambda
       Handler: get-all-courses.handler
-      Timeout: 15
       Environment:
         Variables:
           COURSES_TABLE: !Ref CoursesTable
@@ -88,10 +82,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-one-course
-      Runtime: nodejs12.x
-      CodeUri: lambda
       Handler: get-one-course.handler
-      Timeout: 15
       Environment:
         Variables:
           COURSES_TABLE: !Ref CoursesTable
@@ -103,10 +94,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: delete-one-course
-      Runtime: nodejs12.x
-      CodeUri: lambda
       Handler: delete-one-course.handler
-      Timeout: 15
       Environment:
         Variables:
           COURSES_TABLE: !Ref CoursesTable
