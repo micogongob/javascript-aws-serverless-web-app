@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  aws-cli:
+    image: amazon/aws-cli:2.1.15
+    container_name: web-aws-cli
+    network_mode: host
+    volumes:
+      - ./:/app
+    working_dir: /app
+    env_file: .env
