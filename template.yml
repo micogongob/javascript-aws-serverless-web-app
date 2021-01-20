@@ -39,13 +39,13 @@ Resources:
         - DynamoDBCrudPolicy:
             TableName: !Ref AuthorsTable
       
-  SaveCourseFunction:
+  SaveOneCourseFunction:
     Type: AWS::Serverless::Function
     Properties:
-      FunctionName: save-course
+      FunctionName: save-one-course
       Runtime: nodejs12.x
       CodeUri: lambda
-      Handler: save-course.handler
+      Handler: save-one-course.handler
       Timeout: 15
       Environment:
         Variables:
