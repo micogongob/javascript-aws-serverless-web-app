@@ -1,4 +1,4 @@
-COMPOSE_RUN_AWSCLI = docker-compose run --rm aws-cli
+COMPOSE_RUN_SAM_CLI = docker-compose run --rm sam-cli
 ENVFILE = env.example
 
 .env:
@@ -8,4 +8,5 @@ composePull:
 	docker-compose pull
 
 deploy:
-	$(COMPOSE_RUN_AWSCLI) s3 ls
+	$(COMPOSE_RUN_SAM_CLI) sh scripts/deploy.sh
+
