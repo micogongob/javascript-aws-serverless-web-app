@@ -53,3 +53,18 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref CoursesTable
+
+  GetAllCoursesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: get-all-courses
+      Runtime: nodejs12.x
+      CodeUri: lambda
+      Handler: get-all-courses.handler
+      Timeout: 15
+      Environment:
+        Variables:
+          COURSES_TABLE: !Ref CoursesTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref CoursesTable
