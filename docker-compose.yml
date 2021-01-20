@@ -1,9 +1,9 @@
 version: '3'
 
 services:
-  sam-cli:
-    image: pahud/aws-sam-cli
-    container_name: web-sam-cli
+  aws-cli:
+    image: mikesir87/aws-cli:2.1.6
+    container_name: web-aws-cli
     network_mode: host
     volumes:
       - ./:/app

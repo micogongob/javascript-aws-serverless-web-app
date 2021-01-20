@@ -8,6 +8,6 @@ fi
 
 bucket=$ARTIFACTS_S3_BUCKET
 
-sam package --s3-bucket $bucket --template-file template.yml --output-template-file output.yml
+aws cloudformation package --s3-bucket $bucket --template-file template.yml --output-template-file output.yml
 
-sam deploy --stack-name aws-serverless-web-app  --template-file output.yml --capabilities CAPABILITY_NAMED_IAM
+aws cloudformation deploy --stack-name aws-serverless-web-app  --template-file output.yml --capabilities CAPABILITY_NAMED_IAM

@@ -1,4 +1,4 @@
-COMPOSE_RUN_SAM_CLI = docker-compose run --rm sam-cli
+COMPOSE_RUN_AWS_CLI = docker-compose run --rm aws-cli
 ENVFILE = env.example
 
 .env:
@@ -8,5 +8,5 @@ composePull:
 	docker-compose pull
 
 deploy:
-	$(COMPOSE_RUN_SAM_CLI) sh scripts/deploy.sh
+	$(COMPOSE_RUN_AWS_CLI) sh scripts/deploy.sh
 
