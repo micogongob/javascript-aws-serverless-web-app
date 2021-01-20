@@ -83,3 +83,18 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref CoursesTable
+
+  DeleteOneCourseFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: delete-one-course
+      Runtime: nodejs12.x
+      CodeUri: lambda
+      Handler: delete-one-course.handler
+      Timeout: 15
+      Environment:
+        Variables:
+          COURSES_TABLE: !Ref CoursesTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref CoursesTable
