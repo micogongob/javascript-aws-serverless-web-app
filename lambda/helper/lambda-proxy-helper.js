@@ -2,6 +2,10 @@ function getApiRequestBodyFromEvent(event) {
     return JSON.parse(event.body);
 }
 
+function getApiRequestPathParametersFromEvent(event) {
+    return event.pathParameters;
+}
+
 function createOkResponse(message) {
     return createLambaProxyRespone(200, message);
 }
@@ -24,5 +28,6 @@ function createLambaProxyRespone(statusCode, message) {
 }
 
 exports.getApiRequestBodyFromEvent = getApiRequestBodyFromEvent;
+exports.getApiRequestPathParametersFromEvent = getApiRequestPathParametersFromEvent;
 exports.createOkResponse = createOkResponse;
 exports.createErrorResponse = createErrorResponse;
