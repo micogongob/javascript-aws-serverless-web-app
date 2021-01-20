@@ -53,6 +53,21 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref CoursesTable
+      
+  UpdateOneCourseFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: update-one-course
+      Runtime: nodejs12.x
+      CodeUri: lambda
+      Handler: update-one-course.handler
+      Timeout: 15
+      Environment:
+        Variables:
+          COURSES_TABLE: !Ref CoursesTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref CoursesTable
 
   GetAllCoursesFunction:
     Type: AWS::Serverless::Function
