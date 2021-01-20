@@ -185,7 +185,7 @@ Resources:
 
 Outputs:
   GetAllAuthorsInvokeUrl:
-    Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1/authors
+    Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1/authors/
 
   GetAllCoursesInvokeUrl:
-    Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1/courses
+    Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1/courses/
