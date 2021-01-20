@@ -7,6 +7,6 @@ ENVFILE = env.example
 composePull:
 	docker-compose pull
 
-deploy:
-	$(COMPOSE_RUN_SAM_CLI) sh scripts/deploy.sh
+apiDeploy:
+	$(COMPOSE_RUN_SAM_CLI) sh scripts/api-deploy.sh
 
