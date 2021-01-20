@@ -11,7 +11,7 @@ exports.handler = async (event, context) => {
     
     try {
         await DB.putItem(createParams).promise();
-        return dynamoDbFlattenHelper.flattenDynamoDbItems(createParams);
+        return dynamoDbFlattenHelper.flattenDynamoDbItem(createParams.Item);
     } catch (error) {
         console.log(error);
         return error;
