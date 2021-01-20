@@ -3,16 +3,18 @@ const DB = new AWS.DynamoDB({
     region: process.env.AWS_REGION, 
     apiVersion: '2012-08-10' 
 });
+const lambdaProxy = require('./helper/lambda-proxy-helper');
 
 exports.handler = async (event, context) => {
-    const getOneParams = buildDbGetOneParams(event);
+    const requestPathParams = lambdaProxy.getApiRequestPathParametersFromEvent(event);
+    const getOneParams = buildDbGetOneParams(requestPathParams);
     
     try {
         const response = await DB.deleteItem(getOneParams).promise();
-        return response;
+        return lambdaProxy.createOkResponse(response);
     } catch (error) {
         console.log(error);
-        return error;
+        return lambdaProxy.createErrorResponse(error.message);
     }
 };
 

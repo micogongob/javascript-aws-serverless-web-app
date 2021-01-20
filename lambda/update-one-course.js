@@ -3,21 +3,24 @@ const DB = new AWS.DynamoDB({
     region: process.env.AWS_REGION, 
     apiVersion: '2012-08-10' 
 });
+const lambdaProxy = require('./helper/lambda-proxy-helper');
 const dynamoDbFlattenHelper = require('./helper/dynamodb-flatten-helper');
 
 exports.handler = async (event, context) => {
-    const updateParams = buildDbUpdateParams(event);
+    const requestPathParams = lambdaProxy.getApiRequestPathParametersFromEvent(event);
+    const requestBody = lambdaProxy.getApiRequestBodyFromEvent(event);
+    const updateParams = buildDbUpdateParams(requestPathParams.id, requestBody);
     
     try {
         await DB.putItem(updateParams).promise();
-        return dynamoDbFlattenHelper.flattenDynamoDbItem(updateParams.Item);
+        return lambdaProxy.createOkResponse(dynamoDbFlattenHelper.flattenDynamoDbItem(updateParams.Item));
     } catch (error) {
         console.log(error);
-        return error;
+        return lambdaProxy.createErrorResponse(error.message);
     }
 };
 
-function buildDbUpdateParams({ id, watchHref, title, authorId, length, category }) {
+function buildDbUpdateParams(id, { watchHref, title, authorId, length, category }) {
     return {
       Item: {
         id: {
