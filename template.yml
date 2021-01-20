@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: 2010-09-09
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  CoursesTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: courses
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 2
+        WriteCapacityUnits: 2
+
+  AuthorsTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: authors
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 2
+        WriteCapacityUnits: 2
+
+  GetAllAuthorsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: get-all-authors
+      Runtime: nodejs12.x
+      CodeUri: lambda
+      Handler: get-all-authors.handler
+      Timeout: 15
+      Environment:
+        Variables:
+          AUTHORS_TABLE: !Ref AuthorsTable
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref AuthorsTable
