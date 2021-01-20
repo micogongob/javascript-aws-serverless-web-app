@@ -14,16 +14,14 @@ function createErrorResponse(message) {
     return createLambaProxyRespone(500, message);
 }
 
-function createLambaProxyRespone(statusCode, message) {
+function createLambaProxyRespone(statusCode, body) {
     return {
         statusCode,
         headers: {
             'Access-Control-Allow-Origin': '*',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({
-          message: message
-        })
+        body: JSON.stringify(body)
     };
 }
 
