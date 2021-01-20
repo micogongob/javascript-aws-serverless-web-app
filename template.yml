@@ -1,10 +1,12 @@
 AWSTemplateFormatVersion: 2010-09-09
 Transform: AWS::Serverless-2016-10-31
 
-Globals:  
+Globals:
+  Api:
+    OpenApiVersion: 3.0.1
+  
   Function:
     Runtime: nodejs12.x
-    CodeUri: lambda
     Timeout: 15
 
 Resources:
@@ -34,6 +36,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-all-authors
+      CodeUri: lambda
       Handler: get-all-authors.handler
       Environment:
         Variables:
@@ -46,6 +49,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: save-one-course
+      CodeUri: lambda
       Handler: save-one-course.handler
       Environment:
         Variables:
@@ -53,11 +57,22 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref CoursesTable
+      Events:
+        ApiEvent:
+          Type: Api
+          Properties:
+            RestApiId: !Ref Api
+            Path: /courses
+            Method: post
+            RequestModel:
+              Model: Course
+              Required: true
       
   UpdateOneCourseFunction:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: update-one-course
+      CodeUri: lambda
       Handler: update-one-course.handler
       Environment:
         Variables:
@@ -70,6 +85,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-all-courses
+      CodeUri: lambda
       Handler: get-all-courses.handler
       Environment:
         Variables:
@@ -82,6 +98,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-one-course
+      CodeUri: lambda
       Handler: get-one-course.handler
       Environment:
         Variables:
@@ -94,6 +111,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: delete-one-course
+      CodeUri: lambda
       Handler: delete-one-course.handler
       Environment:
         Variables:
@@ -101,3 +119,28 @@ Resources:
       Policies:
         - DynamoDBCrudPolicy:
             TableName: !Ref CoursesTable
+
+  Api:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: production
+      Cors: "'*'"
+      Models:
+        Course:
+          $schema: http://json-schema.org/schema#
+          title: CourseInputModel
+          type: object
+          properties:
+            title:
+              type: string
+            authorId:
+              type: integer
+            length:
+              type: string
+            category:
+              type: string
+          required:
+            - title
+            - authorId
+            - length
+            - category
