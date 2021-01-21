@@ -1,8 +1,11 @@
 # AWS Serverless Web App
 
 This is an example project based from [Building a Serverless Web App with AWS Services](https://www.pluralsight.com/guides/front-end-javascript/building-a-serverless-web-app-on-aws-services) meant to be an exemplar project to showcase:
-- Serverless Application Model Framework
-- S3 Static Site Hosting
+- A serverless fullstack web app using:
+  - AWS Gateway + AWS Lambda
+  - AWS DynamoDB
+  - S3 static site hosting
+- Serverless Application Model Framework / CloudFormation
 - [3 Musketeers](https://3musketeers.io/)
 
 ## Setup
