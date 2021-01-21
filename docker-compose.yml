@@ -9,3 +9,11 @@ services:
       - ./:/app
     working_dir: /app
     env_file: .env
+  
+  node:
+    image: node:14
+    container_name: web-node-14
+    network_mode: host
+    volumes:
+      - ./frontend:/app
+    working_dir: /app
