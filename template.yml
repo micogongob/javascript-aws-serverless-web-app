@@ -162,7 +162,10 @@ Resources:
     Type: AWS::Serverless::Api
     Properties:
       StageName: v1
-      Cors: "'*'"
+      Cors:
+        AllowMethods: "'DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT'"
+        AllowHeaders: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'"
+        AllowOrigin: "'*'"
       Models:
         Course:
           $schema: http://json-schema.org/schema#
