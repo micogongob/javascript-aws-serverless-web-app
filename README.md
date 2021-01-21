@@ -5,22 +5,22 @@ This is an example project based from [Building a Serverless Web App with AWS Se
 - S3 Static Site Hosting
 - [3 Musketeers](https://3musketeers.io/)
 
-## Deploy API
-```bash
-make apiDeploy
-```
-
 ## Setup
 ```bash
-make .env
+$ make .env
+```
+
+## Deploy API
+```bash
+$ make apiDeploy
 ```
 
 ## Build React Frontend
 ```bash
-make frontendBuild
+$ make frontendBuild
 ```
 
 ## Deploy React Frontend to S3
 ```bash
-make frontendDeploy
+$ make frontendDeploy
 ```
