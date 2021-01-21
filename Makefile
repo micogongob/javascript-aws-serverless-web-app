@@ -8,8 +8,8 @@ ENVFILE = env.example
 composePull:
 	docker-compose pull
 
-deploy:
-	$(COMPOSE_RUN_AWS_CLI) sh scripts/deploy.sh
+apiDeploy:
+	$(COMPOSE_RUN_AWS_CLI) sh scripts/api-deploy.sh
 
 frontendBuild:
 	$(COMPOSE_RUN_AWS_CLI) sh scripts/frontend-pre-build.sh
