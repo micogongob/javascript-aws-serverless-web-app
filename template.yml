@@ -183,9 +183,39 @@ Resources:
             - length
             - category
 
+  WebAppBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+      WebsiteConfiguration:
+        IndexDocument: index.html
+        ErrorDocument: index.html
+
+  BucketPublicAccessPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref WebAppBucket
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Sid: PublicRead
+            Effect: Allow
+            Principal: "*"
+            Action:
+              - s3:GetObject
+            Resource:
+              - !Sub ${WebAppBucket.Arn}/*
+
 Outputs:
   GetAllAuthorsInvokeUrl:
     Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1/authors/
 
   GetAllCoursesInvokeUrl:
     Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1/courses/
+  
+  WebAppUrl:
+    Value: !GetAtt WebAppBucket.WebsiteURL
