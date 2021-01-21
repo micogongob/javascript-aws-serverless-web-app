@@ -1,5 +1,5 @@
 COMPOSE_RUN_AWS_CLI = docker-compose run --rm aws-cli
-COMPOSE_RUN_AWS_NODE = docker-compose run --rm node
+COMPOSE_RUN_NODE = docker-compose run --rm node
 ENVFILE = env.example
 
 .env:
@@ -13,7 +13,7 @@ apiDeploy:
 
 frontendBuild:
 	$(COMPOSE_RUN_AWS_CLI) sh scripts/frontend-pre-build.sh
-	$(COMPOSE_RUN_AWS_NODE) bash -c "npm install && npm run build"
+	$(COMPOSE_RUN_NODE) bash -c "npm install && npm run build"
 
 frontendDeploy:
 	$(COMPOSE_RUN_AWS_CLI) sh scripts/frontend-deploy.sh
