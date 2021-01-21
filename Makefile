@@ -5,7 +5,7 @@ ENVFILE = env.example
 .env:
 	cp -f $(ENVFILE) .env
 
-composePull:
+deps:
 	docker-compose pull
 
 apiDeploy:
