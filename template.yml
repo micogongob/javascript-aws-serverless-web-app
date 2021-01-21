@@ -214,11 +214,17 @@ Resources:
               - !Sub ${WebAppBucket.Arn}/*
 
 Outputs:
-  GetAllAuthorsInvokeUrl:
+  ApiBaseUrl:
+    Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1
+
+  AuthorsInvokeUrl:
     Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1/authors/
 
-  GetAllCoursesInvokeUrl:
+  CoursesInvokeUrl:
     Value: !Sub https://${Api}.execute-api.${AWS::Region}.amazonaws.com/v1/courses/
   
+  WebAppS3Bucket:
+    Value: !Ref WebAppBucket
+
   WebAppUrl:
     Value: !GetAtt WebAppBucket.WebsiteURL
