@@ -4,7 +4,7 @@ This is a project based from [Building a Serverless Web App with AWS Services](h
 - A serverless fullstack web app using:
   - AWS Gateway + AWS Lambda running on NodeJS
   - AWS DynamoDB NoSQL database
-  - ReactJS frontend with S3 static site hosting
+  - [ReactJS frontend](https://github.com/eh3rrera/react-app-frontend) with S3 static site hosting
 - Serverless Application Model Framework / CloudFormation
 - [3 Musketeers](https://3musketeers.io/)
 
