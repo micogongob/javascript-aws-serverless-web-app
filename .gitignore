@@ -1,3 +1,6 @@
 .idea/
 .env
 output.yml
+**/node_modules
+**/build
+**/serverUrl.js
