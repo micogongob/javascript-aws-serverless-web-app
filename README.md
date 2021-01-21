@@ -1,6 +1,6 @@
 # AWS Serverless Web App
 
-This is an example project based from [Building a Serverless Web App with AWS Services](https://www.pluralsight.com/guides/front-end-javascript/building-a-serverless-web-app-on-aws-services) meant to be an exemplar project to showcase:
+This is a project based from [Building a Serverless Web App with AWS Services](https://www.pluralsight.com/guides/front-end-javascript/building-a-serverless-web-app-on-aws-services) meant to be an exemplar project to showcase:
 - A serverless fullstack web app using:
   - AWS Gateway + AWS Lambda running on NodeJS
   - AWS DynamoDB NoSQL database
