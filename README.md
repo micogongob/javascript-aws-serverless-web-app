@@ -10,7 +10,7 @@ This is a project based from [Building a Serverless Web App with AWS Services](h
 
 ### setup
 ```bash
-$ make .env
+$ make .env deps
 ```
 
 ### deploy api
