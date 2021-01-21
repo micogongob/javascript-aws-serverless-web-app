@@ -1,4 +1,4 @@
-# Javascript AWS Serverless Web App
+# JavaScript AWS Serverless Web App
 
 This is a project based from [Building a Serverless Web App with AWS Services](https://www.pluralsight.com/guides/front-end-javascript/building-a-serverless-web-app-on-aws-services) meant to be an exemplar project to showcase:
 - A serverless fullstack web app using:
