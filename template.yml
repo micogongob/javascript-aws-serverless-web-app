@@ -36,7 +36,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-all-authors
-      CodeUri: lambda
+      CodeUri: api
       Handler: get-all-authors.handler
       Environment:
         Variables:
@@ -56,7 +56,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: save-one-course
-      CodeUri: lambda
+      CodeUri: api
       Handler: save-one-course.handler
       Environment:
         Variables:
@@ -79,7 +79,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: update-one-course
-      CodeUri: lambda
+      CodeUri: api
       Handler: update-one-course.handler
       Environment:
         Variables:
@@ -102,7 +102,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-all-courses
-      CodeUri: lambda
+      CodeUri: api
       Handler: get-all-courses.handler
       Environment:
         Variables:
@@ -122,7 +122,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: get-one-course
-      CodeUri: lambda
+      CodeUri: api
       Handler: get-one-course.handler
       Environment:
         Variables:
@@ -142,7 +142,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       FunctionName: delete-one-course
-      CodeUri: lambda
+      CodeUri: api
       Handler: delete-one-course.handler
       Environment:
         Variables:
