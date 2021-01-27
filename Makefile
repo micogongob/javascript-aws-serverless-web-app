@@ -8,12 +8,12 @@ ENVFILE = env.example
 deps:
 	docker-compose pull
 
-apiDeploy:
+deployApi:
 	$(COMPOSE_RUN_AWS_CLI) sh scripts/api-deploy.sh
 
-frontendBuild:
+buildFrontend:
 	$(COMPOSE_RUN_AWS_CLI) sh scripts/frontend-pre-build.sh
 	$(COMPOSE_RUN_NODE) bash -c "npm install && npm run build"
 
-frontendDeploy:
+deployFrontend: buildFrontend
 	$(COMPOSE_RUN_AWS_CLI) sh scripts/frontend-deploy.sh
