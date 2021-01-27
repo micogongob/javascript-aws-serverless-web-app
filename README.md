@@ -12,15 +12,10 @@ $ make .env deps
 
 ### deploy api
 ```bash
-$ make apiDeploy
+$ make deployApi
 ```
 
-### build react frontend
+### deploy frontend to s3
 ```bash
-$ make frontendBuild
-```
-
-### deploy react frontend to s3
-```bash
-$ make frontendDeploy
+$ make deployFrontend
 ```
