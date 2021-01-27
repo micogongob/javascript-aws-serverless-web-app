@@ -5,17 +5,17 @@ This is based from [Pluralsight - Building a Serverless Web App with AWS Service
 - AWS DynamoDB NoSQL database
 - [ReactJS frontend](https://github.com/eh3rrera/react-app-frontend) with S3 static site hosting
 
-### setup
+### Setup
 ```bash
 $ make .env deps
 ```
 
-### deploy api
+### Deploy API
 ```bash
 $ make deployApi
 ```
 
-### deploy frontend to s3
+### Deploy Frontend to S3
 ```bash
 $ make deployFrontend
 ```
