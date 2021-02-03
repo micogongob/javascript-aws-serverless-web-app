@@ -1,4 +1,4 @@
-<img src="read-me-icon.png" align="right" />
+<img src="icon.png" align="right" />
 
 # JavaScript AWS Serverless Web App
 
