@@ -5,17 +5,14 @@ This is based from [Pluralsight - Building a Serverless Web App with AWS Service
 - AWS DynamoDB NoSQL database
 - [ReactJS frontend](https://github.com/eh3rrera/react-app-frontend) with S3 static site hosting
 
+## Prerequisites
+This project uses [Docker](https://docs.docker.com/engine/installation/), [Compose](https://docs.docker.com/compose/install/) and [Make](https://www.gnu.org/software/make/) to build artifacts and to execute deployment scripts.  
+
 ### Setup
-```bash
-$ make .env deps
-```
+    $ make .env deps
 
 ### Deploy API
-```bash
-$ make deployApi
-```
+    $ make deployApi
 
 ### Deploy Frontend to S3
-```bash
-$ make deployFrontend
-```
+    $ make deployFrontend
