@@ -8,11 +8,11 @@ This is based from [Pluralsight - Building a Serverless Web App with AWS Service
 ## Prerequisites
 This project uses [Docker](https://docs.docker.com/engine/installation/), [Compose](https://docs.docker.com/compose/install/) and [Make](https://www.gnu.org/software/make/) to build artifacts and to execute deployment scripts.  
 
-### Setup
+## Setup
     $ make .env deps
 
-### Deploy API
+## Deploy API
     $ make deployApi
 
-### Deploy Frontend to S3
+## Deploy Frontend to S3
     $ make deployFrontend
