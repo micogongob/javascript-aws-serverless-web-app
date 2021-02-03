@@ -1,3 +1,5 @@
+<img src="read-me-icon.png" align="right" />
+
 # JavaScript AWS Serverless Web App
 
 This is based from [Pluralsight - Building a Serverless Web App on AWS Services](https://www.pluralsight.com/guides/building-a-serverless-web-app-on-aws-services) meant to be an exemplar project to showcase a serverless fullstack web app using:
