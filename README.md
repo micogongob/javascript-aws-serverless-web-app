@@ -1,4 +1,4 @@
-# JavaScript AWS Serverless Web App
+# AWS Serverless Web App
 
 This is based from [Pluralsight - Building a Serverless Web App on AWS Services](https://www.pluralsight.com/guides/building-a-serverless-web-app-on-aws-services) meant to be an exemplar project to showcase a serverless fullstack web app using:
 - AWS Gateway + AWS Lambda running on NodeJS
