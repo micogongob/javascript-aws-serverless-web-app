@@ -1,4 +1,6 @@
-<img src="icon.png" align="right" />
+<p align="center">
+  <img width=100% src="banner.png">
+</p>
 
 # JavaScript AWS Serverless Web App
 
