@@ -1,9 +1,9 @@
 COMPOSE_RUN_AWS_CLI = docker-compose run --rm aws-cli
 COMPOSE_RUN_NODE = docker-compose run --rm node
-ENVFILE = env.example
+envfile = env.example
 
 .env:
-	cp -f $(ENVFILE) .env
+	cp -f $(envfile) .env
 
 deps:
 	docker-compose pull
